@@ -56,7 +56,7 @@ contract DEX {
     function swap(
         address inputToken,
         uint256 inputAmount
-    ) external returns (bool) {
+    ) external returns (uint256) {
         require(inputToken == tokenA || inputToken == tokenB, "Invalid token");
 
         require(inputAmount > 0, "Invalid input amount");
@@ -96,7 +96,7 @@ contract DEX {
             "Output token transfer invalid"
         );
 
-        return true;
+        return outputAmount;
     }
 
     function removeLiquidity(uint256 share) external {
